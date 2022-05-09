@@ -1,2 +1,0 @@
-# Particeep
- Particeep internship test
