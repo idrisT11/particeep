@@ -10,7 +10,8 @@ main{
 #main-content{
     flex: 4;
     padding: 50px;
-
+    padding-left: 30px;
+    padding-right: 30px;
     overflow-y: scroll;
 }
 

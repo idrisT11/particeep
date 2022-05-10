@@ -15,7 +15,7 @@ class FilterBar extends React.Component{
     }
 
     componentDidMount(){
-        this.props.setNbFilmPage(4);
+        this.props.setNbFilmPage(8);
 
     }
 
