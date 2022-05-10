@@ -1,0 +1,15 @@
+
+@font-face {
+    font-family: "Exo-Regular";
+    src: url("Exo-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Lato";
+    src: url("Lato-Black.ttf");
+}
+
+@font-face {
+    font-family: "Bree";
+    src: url("BreeSerif-Regular.ttf");
+}

@@ -1,0 +1,21 @@
+.like-bar-ctn{
+    margin: 4px;
+}
+
+.like-bar-exterior{
+    height:5px; 
+    width:100%; 
+    clear:both;  
+    
+    background-color: white;
+    box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.like-bar-interior{
+    height:100%; 
+    clear:both;
+    border-radius: 5px;
+
+    background-color: #2fd4ae;
+}
