@@ -3,8 +3,9 @@ const likedFilms = (state=[], action) => {
     switch (action.type) {
         case 'TOGGLE_LIKE':
             return state.map((filmCarte)=>{
+                console.log(filmCarte.id == action.id);
 
-                if (filmCarte.id === action.id) 
+                if (filmCarte.id == action.id) 
                     return {likeValue:(filmCarte.likeValue!='LIKED')?'LIKED':'', id:filmCarte.id}
                 
                 else
@@ -16,7 +17,7 @@ const likedFilms = (state=[], action) => {
         case 'TOGGLE_DISLIKE':
             return state.map((filmCarte)=>{
 
-                if (filmCarte.id === action.id) 
+                if (filmCarte.id == action.id) 
                     return {likeValue:(filmCarte.likeValue!='DISLIKED')?'DISLIKED':'', id:filmCarte.id}
             
                 else

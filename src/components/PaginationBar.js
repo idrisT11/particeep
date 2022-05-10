@@ -23,23 +23,34 @@ class PaginationBar extends React.Component{
 
     }
 
+    handlePageJump(inc){
+        let nbPages = Math.floor(this.props.nbFilm/this.props.nbFilmPage) + 1;
+
+        if (inc > 0 && this.props.pageNumber + 1 <= nbPages) 
+
+            this.props.setPage(this.props.pageNumber + 1);
+
+        else if (inc < 0 && this.props.pageNumber - 1 > 0) 
+            this.props.setPage(this.props.pageNumber - 1);
+            
+    }
+
     render(){
 
 
         if ( this.props.nbFilm && this.props.pageNumber && this.props.nbFilmPage) 
         {
-            let nbPages = Math.floor(this.props.nbFilm/this.props.nbFilmPage) + 1,
+            let nbPages = Math.ceil(this.props.nbFilm/this.props.nbFilmPage),
                 tav = new Array(nbPages).fill(0).map((_, i)=>(i+1));
-                console.log(nbPages);
             
             return (
-                <nav className='carte-ctn'>
+                <nav id='pagination-ctn'>
                     
-                    <div>
-                        Retour
+                    <div onClick={()=>this.handlePageJump(-1)} className="pagination-avance-retour">
+                    ❰
                     </div>
 
-                    <div>
+                    <div id='pagination-button-ctn'>
                         {
                             tav.map((page, i)=>((
                                 <div 
@@ -54,8 +65,8 @@ class PaginationBar extends React.Component{
                         }
                     </div>
 
-                    <div>
-                        Avancer
+                    <div onClick={()=>this.handlePageJump(1)} className="pagination-avance-retour">
+                    ❱
                     </div>
 
                 </nav>

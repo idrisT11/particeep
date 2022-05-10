@@ -50,7 +50,7 @@ class FilterBar extends React.Component{
         return (
             <div className='filter-bar-ctn'>
                 <h1>Filtrez vos résulats</h1>
-                <div>
+                <div id="filter-bar-cetegory-ctn">
 
                     {this.props.categories && this.props.categories.map((category, i)=>((
                         <div 
@@ -63,17 +63,38 @@ class FilterBar extends React.Component{
                         </div>
                     )))}
 
+
                 </div>
 
 
                 <div>
                     {this.props.printedFilmList && this.props.printedFilmList.length} résulat(s) affiché(s)
                 </div>
+                
+                <h2>Nombre d'élements par page :</h2>
 
-                <div>
-                    <button onClick={()=>this.handleNbFilmPage(4)}>4</button>
-                    <button onClick={()=>this.handleNbFilmPage(8)}>8</button>
-                    <button onClick={()=>this.handleNbFilmPage(12)}>12</button>
+                <div id="nbFilmPage">
+                    
+                    <button 
+                        onClick={()=>this.handleNbFilmPage(4)}
+                        id={4==this.props.nbFilmPage?'nbFilmPage-selected': ''}
+                        className="nbFilmPage-button"
+                    >
+                        4
+                    </button>
+                    <button 
+                        onClick={()=>this.handleNbFilmPage(8)}
+                        id={8==this.props.nbFilmPage?'nbFilmPage-selected': ''}
+                        className="nbFilmPage-button"
+                    >
+                        8
+                    </button>
+                    <button 
+                        onClick={()=>this.handleNbFilmPage(12)}
+                        id={12==this.props.nbFilmPage?'nbFilmPage-selected': ''}
+                        className="nbFilmPage-button"
+                    >
+                    12</button>
                 </div>
 
             </div>

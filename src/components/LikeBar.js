@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from 'react-redux';
+import { toggleLike, toggleDislike } from '../actions';
 import '../style/LikeBar.css';
 
 class LikeBar extends React.Component{
@@ -21,4 +23,18 @@ class LikeBar extends React.Component{
 
 }
 
-export default LikeBar;
+
+const mapStateToProps = function(state, m_props) {
+    return {
+      likedFilm: state.likedFilms,
+    }
+}
+
+const mapDispatchToProps = function(dispatch, m_props) {
+    return {
+      toggleLike: (id) => dispatch(toggleLike(id)),
+      toggleDislike: (id) => dispatch(toggleDislike(id)),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LikeBar);

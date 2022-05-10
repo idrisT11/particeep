@@ -1,9 +1,30 @@
 
 main{
-    padding: 50px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 30px;
-    grid-auto-rows: minmax(100px, auto);
+    display: flex;
 
+
+    height: 100%;
+
+}
+
+#main-content{
+    flex: 4;
+    padding: 50px;
+
+    overflow-y: scroll;
+}
+
+#main-content>h1{
+    font-family: 'Bree Serif', 'Lato', serif;
+    color: #2fd4ae;
+
+}
+
+#filmList{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    flex: 6;
 }

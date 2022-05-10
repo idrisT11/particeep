@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { toggleLike, toggleDislike, deleteFilm } from '../actions';
 
+import LikeBar from './LikeBar';
 import '../style/Carte.css';
 
 class CarteFooter extends React.Component{
@@ -21,7 +22,6 @@ class CarteFooter extends React.Component{
 
     handleDislike(){
         this.props.toggleDislike(this.props.id);
-        //console.log(this.props.auth);
 
     }
 
@@ -29,12 +29,54 @@ class CarteFooter extends React.Component{
         this.props.deleteFilm(this.props.id);
     }
 
+    liked(){
+        return this.props.likedFilm[this.props.id-1].likeValue == 'LIKED';
+    }
+
+    disliked(){
+        return this.props.likedFilm[this.props.id-1].likeValue == 'DISLIKED';
+    }
+
     render(){
-        return(
+        return this.props.likedFilm.length != 0 && (
+
             <div className='carte-footer'>
-                <button onClick={this.handleDelete} className='delete-button'> <img src='/images/delete.svg' width={"30px"}  alt="dislike"/> </button>
-                <button onClick={this.handleLike} className='like-button'> <img src='/images/like.svg' width={"30px"}  alt="like"/> </button>
-                <button onClick={this.handleDislike} className='dislike-button'> <img src='/images/dislike.svg' width={"30px"}  alt="dislike"/> </button>
+                <button onClick={this.handleDelete} className='delete-button'> 
+                    <img 
+                        src='/images/delete.svg' 
+                        width={"30px"}  
+                        alt="dislike"
+                    /> 
+                </button>
+
+                <div className='like-zone'>
+                    <div className='like-dislike-ctn'>
+                        <button onClick={this.handleLike} className='like-button'> 
+                            <img 
+                                src={this.liked()?'/images/like_full.svg':'/images/like.svg'}
+                                width={"30px"}  
+                                alt="like"
+                            /> 
+                            <span>{this.props.likes+(this.liked()?1:0)}</span>
+                        </button>
+
+
+                        <button onClick={this.handleDislike} className='dislike-button'> 
+                            <img 
+                                src={this.disliked()?'/images/dislike_full.svg':'/images/dislike.svg'}
+                                width={"30px"}  
+                                alt="dislike"
+                            /> 
+                            <span>{this.props.dislikes+(this.disliked()?1:0)}</span>
+                        </button>
+
+                    </div>
+
+                    <LikeBar likes={this.props.likes+(this.liked()?1:0)} dislikes={this.props.dislikes+(this.disliked()?1:0)} />
+
+                </div>
+
+
             </div>
         );
     }

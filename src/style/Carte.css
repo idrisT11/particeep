@@ -5,14 +5,18 @@
 
     background-color: #fff;
 
-    max-width: 300px;
+    width: 270px;
     padding: 10px;
+    margin: 25px;
     font-family: 'Bree Serif', serif;
+
+    border-radius: 8px;
 }
 
 .carte-title{
     color: #444;
     font-family: 'Bree Serif', serif;
+    font-size: 29px;
 
 }
 
@@ -26,10 +30,37 @@
 }
 
 
+
+
+
+.carte-footer{
+    display: flex;
+    margin-top: 5px;
+}
+
+
+.like-zone{
+    flex: 1;
+}
+
 .like-button, .dislike-button, .delete-button{
     background-color: rgba(0, 0, 0, 0);
     border: none;
     padding: 10px;
+
+    cursor: pointer;
+
+}
+
+.like-button, .dislike-button{
+    display: flex;
+    align-items: baseline;
+}
+
+.like-button>span, .dislike-button>span{
+    font-size: 20px;
+    color: #2fd4ae;
+    margin-left: 8px;
 
 }
 
@@ -38,6 +69,15 @@
     stroke-width: 10;
     stroke: #2fd4ae;
 }
+
+.like-dislike-ctn{
+    display: flex;
+    justify-content: space-around;
+
+}
+
+
+
 
 
 

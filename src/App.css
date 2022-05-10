@@ -1,7 +1,29 @@
 
 body, html{
   background-color: #f6ffff;   
+  height: 100%;
+  overflow: hidden;
 }
+
+#root, .App{
+  height: 100%;
+}
+
+
+
+@font-face {
+  font-family: "Exo-Regular";
+  src: url("/public/fonts/Exo-Regular.otf");
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("/public/fonts/Lato-Medium.ttf");
+}
+
+
+
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

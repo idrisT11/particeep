@@ -34,25 +34,31 @@ class Main extends React.Component{
     getShowed(){
         let a = this.props.nbFilmPage * (this.props.pageNumber - 1),
             b = this.props.nbFilmPage * this.props.pageNumber;
-        console.log(a, b);
-        console.log(this.props.printedFilmList);
+
+            
         return this.props.printedFilmList.filter((_, idx)=> a <= idx && b > idx );
     }
 
     
     render(){
 
-        return this.props.printedFilmList && this.props.allFilmList && (
+        return this.props.printedFilmList && this.props.allFilmList &&  (
             <main>
                 <FilterBar/>
 
-                <div>
-                    {this.getShowed().map((film, i) => ((
-                        <Carte id={film.id} title={film.title} category={film.category} likes={film.likes} dislikes={film.dislikes} key={i}/>
+                <div id='main-content'>
+                    <h1>Liste des résultats :</h1>
 
-                    )))}
+                    <div id='filmList'>
+                        {this.getShowed().map((film, i) => ((
+                            <Carte id={film.id} title={film.title} category={film.category} likes={film.likes} dislikes={film.dislikes} key={i}/>
+
+                        )))}
+                    </div>
+
+                    <PaginationBar />
                 </div>
-                <PaginationBar />
+
 
 
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import LikeBar from './LikeBar';
 import CarteFooter from './CarteFooter';
 import '../style/Carte.css';
 
@@ -24,9 +23,7 @@ class Carte extends React.Component{
                     </span>
                 </div>
 
-                <LikeBar likes={this.props.likes} dislikes={this.props.dislikes} />
-
-                <CarteFooter id={this.props.id}/>
+                <CarteFooter id={this.props.id} likes={this.props.likes} dislikes={this.props.dislikes}/>
 
             </div>
         );
